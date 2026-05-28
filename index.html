@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#ead9bb" />
+  <title>Channel</title>
+  <meta name="description" content="A sixty-second measurement of an unaided human input channel." />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'&gt;&lt;rect width='64' height='64' rx='12' fill='%23211f2b'/&gt;&lt;circle cx='32' cy='32' r='22' fill='none' stroke='%23cf8b1f' stroke-opacity='0.32' stroke-width='2'/&gt;&lt;circle cx='32' cy='32' r='14' fill='%23cf8b1f'/&gt;&lt;circle cx='32' cy='32' r='14' fill='none' stroke='%23ffffff' stroke-opacity='0.32' stroke-width='1.5'/&gt;&lt;/svg&gt;" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Channel" />
+  <meta property="og:description" content="A sixty-second measurement of an unaided human input channel." />
+  <meta property="og:url" content="https://jeevankarandikar.com/projects/channel" />
+  <meta property="og:image" content="https://jeevankarandikar.com/projects/channel/og.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Channel" />
+  <meta name="twitter:description" content="A sixty-second measurement of an unaided human input channel." />
+  <meta name="twitter:image" content="https://jeevankarandikar.com/projects/channel/og.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=ttt45" />
+</head>
+<body>
+  <div class="page">
+
+    <main id="app" data-screen="title">
+
+      <section class="screen screen-title" data-screen="title">
+        <div class="title-grid">
+          <div class="title-copy">
+            <h1 class="hero">channel</h1>
+            <p class="title-subtitle">
+              find your maximum input bit rate
+            </p>
+            <div class="formula" aria-label="bit rate formula">
+              <math display="block">
+                <mi>B</mi>
+                <mo>=</mo>
+                <mfrac>
+                  <mrow>
+                    <msub><mi>log</mi><mn>2</mn></msub>
+                    <mo>(</mo><mi>N</mi><mo>−</mo><mn>1</mn><mo>)</mo>
+                    <mo>·</mo>
+                    <mi>max</mi>
+                    <mo>(</mo>
+                    <msub><mi>S</mi><mi>c</mi></msub>
+                    <mo>−</mo>
+                    <msub><mi>S</mi><mi>i</mi></msub>
+                    <mo>,</mo>
+                    <mn>0</mn>
+                    <mo>)</mo>
+                  </mrow>
+                  <mi>t</mi>
+                </mfrac>
+              </math>
+            </div>
+
+            <div class="title-actions">
+              <button class="btn btn-primary btn-hero" data-action="open-start-choice">begin</button>
+            </div>
+
+            <button class="title-leaderboard-link" data-action="open-leaderboard-popup" type="button">
+              see the leaderboard
+            </button>
+
+            <div class="start-choice" data-start-choice hidden>
+              <p>choose your input</p>
+              <div class="start-methods" aria-label="input methods">
+                <button class="start-method" data-pick-method="full">
+                  <strong>fullband</strong>
+                  <span class="device-tag" data-device-tag="full" hidden>your device</span>
+                  <span>use a full keyboard</span>
+                </button>
+                <button class="start-method" data-pick-method="tap">
+                  <strong>touchband</strong>
+                  <span class="device-tag" data-device-tag="tap" hidden>your device</span>
+                  <span>use a phone or tablet</span>
+                </button>
+              </div>
+              <p class="cross-device-note">keyboard and touchscreen are different channels, so run each on its own device and keep your best</p>
+              <div class="start-choice-actions">
+                <button class="btn btn-primary" data-action="start-scored" data-scored-cta>start 60s run</button>
+                <button class="btn btn-ghost" data-action="warm-up">practice 15s</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen screen-calibration" data-screen="calibration">
+        <header class="title-mark">
+          <span class="wordmark">Channel</span>
+          <span class="meta">calibration round</span>
+        </header>
+
+        <div class="calibration-copy">
+          <h2 data-calibration-title>choose a method</h2>
+          <p data-calibration-body>
+            pick the input for your device, or try both.
+          </p>
+        </div>
+
+        <div class="mode-grid" data-calibration-modes>
+          <article class="mode-card" data-calibration-card="full">
+            <span class="section-eyebrow">fullband<span class="mode-sub">full keyboard</span></span>
+            <span class="mode-result" data-mode-result="full">not run</span>
+            <button class="btn btn-ghost btn-sm" data-choose-mode="full">try fullband</button>
+          </article>
+
+          <article class="mode-card" data-calibration-card="tap">
+            <span class="section-eyebrow">touchband<span class="mode-sub">tap grid</span></span>
+            <span class="mode-result" data-mode-result="tap">not run</span>
+            <button class="btn btn-ghost btn-sm" data-choose-mode="tap">try touchband</button>
+          </article>
+        </div>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" data-action="start-recommended-eval" data-calibration-best hidden>
+            start scored run
+          </button>
+          <button class="btn btn-ghost" data-action="reset-calibration">reset</button>
+          <button class="btn btn-ghost" data-action="back-to-title">back</button>
+        </div>
+      </section>
+
+      <section class="screen screen-game" data-screen="game">
+        <header class="game-mark">
+          <span class="wordmark wordmark-sm">Channel</span>
+        </header>
+
+        <div class="readout">
+          <div class="readout-rate">
+            <span class="rate-display" data-bit-rate>0.00</span>
+            <span class="rate-unit">bps</span>
+          </div>
+          <div class="readout-meta">
+            <span class="meta">t · <span class="value" data-time>—</span></span>
+          </div>
+        </div>
+
+        <div class="game-hud">
+          <span class="hud-stat" title="correct hits">
+            <span class="hud-label">S<sub>c</sub></span>
+            <span class="hud-value" data-sc>0</span>
+          </span>
+          <span class="hud-stat" title="wrong hits">
+            <span class="hud-label">S<sub>i</sub></span>
+            <span class="hud-value" data-si>0</span>
+          </span>
+          <span class="hud-stat" title="alphabet size">
+            <span class="hud-label">N</span>
+            <span class="hud-value" data-n>25</span>
+          </span>
+          <span class="hud-stat" title="Sc / (Sc + Si)">
+            <span class="hud-label">accuracy</span>
+            <span class="hud-value" data-live-accuracy>—</span>
+          </span>
+          <span class="hud-stat hud-stat-wide">
+            <span class="hud-label">mode</span>
+            <span class="hud-value" data-alphabet-label>fullband</span>
+          </span>
+          <span class="hud-stat hud-stat-action" data-during="practice">
+            <button class="btn btn-primary btn-sm" data-action="start-eval-from-practice">
+              begin scored eval →
+            </button>
+            <button class="btn btn-ghost btn-sm" data-action="restart-current" type="button">restart</button>
+            <button class="btn btn-ghost btn-sm" data-action="abort-eval" type="button">exit</button>
+          </span>
+          <span class="hud-stat hud-stat-action" data-during="eval">
+            <button class="btn btn-ghost btn-sm" data-action="restart-current" type="button">restart</button>
+            <button class="btn btn-ghost btn-sm" data-action="abort-eval" type="button">exit</button>
+          </span>
+        </div>
+
+        <div class="play-area">
+          <div class="queue" data-queue aria-label="next targets">
+            <!-- Filled by game.js -->
+          </div>
+
+          <div class="ready-panel" data-ready-panel hidden>
+            <h2 data-ready-title>set your hands</h2>
+            <p data-ready-body>press space to start.</p>
+            <button class="btn btn-primary btn-ready" data-action="begin-ready-run" data-ready-cta>
+              press space or click to start
+            </button>
+          </div>
+
+          <div class="plate">
+            <div class="keyboard" data-keyboard aria-hidden="true">
+              <!-- Filled by game.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen screen-results" data-screen="results">
+        <header class="title-mark">
+          <span class="wordmark">Channel</span>
+          <span class="meta">result</span>
+        </header>
+
+        <div class="result-hero">
+          <span class="rate-display rate-display-xl" data-final-rate>0.00</span>
+          <span class="rate-unit rate-unit-xl">bps</span>
+        </div>
+
+        <hr class="rule rule-result" />
+
+        <dl class="result-stats">
+          <div class="stat-cell">
+            <dt class="hud-label">N</dt>
+            <dd class="hud-value" data-final-n>—</dd>
+            <small class="stat-caption">alphabet size</small>
+          </div>
+          <div class="stat-cell">
+            <dt class="hud-label">S<sub>c</sub></dt>
+            <dd class="hud-value" data-final-sc>—</dd>
+            <small class="stat-caption">correct hits</small>
+          </div>
+          <div class="stat-cell">
+            <dt class="hud-label">S<sub>i</sub></dt>
+            <dd class="hud-value" data-final-si>—</dd>
+            <small class="stat-caption">wrong hits</small>
+          </div>
+          <div class="stat-cell">
+            <dt class="hud-label">t</dt>
+            <dd class="hud-value" data-final-t>—</dd>
+            <small class="stat-caption">seconds</small>
+          </div>
+          <div class="stat-cell">
+            <dt class="hud-label">cps</dt>
+            <dd class="hud-value" data-final-cps>—</dd>
+            <small class="stat-caption">hits per second</small>
+          </div>
+          <div class="stat-cell">
+            <dt class="hud-label">accuracy</dt>
+            <dd class="hud-value" data-final-accuracy>—</dd>
+            <small class="stat-caption">Sc / (Sc + Si)</small>
+          </div>
+        </dl>
+
+        <div class="result-detail-grid">
+          <section class="trajectory-section">
+            <h2 class="section-eyebrow">trajectory</h2>
+            <div class="trajectory" data-result-sparkline aria-label="bit rate over time"></div>
+          </section>
+
+          <section class="heatmap-section">
+            <h2 class="section-eyebrow">target speed</h2>
+            <div class="heatmap" data-result-heatmap></div>
+          </section>
+        </div>
+
+        <section class="comparison-section">
+          <h2 class="section-eyebrow">raw rate benchmarks</h2>
+          <div class="comparison" data-comparison>
+            <!-- Filled by game.js -->
+          </div>
+        </section>
+
+        <section class="leaderboard-section">
+          <h2 class="section-eyebrow">leaderboard</h2>
+          <form class="leaderboard-form" data-leaderboard-form>
+            <input class="leaderboard-name" data-leaderboard-name type="text" maxlength="24"
+              placeholder="first name + last initial" aria-label="your name" autocomplete="off" />
+            <select class="leaderboard-device" data-leaderboard-device aria-label="your device">
+              <option value="keyboard">keyboard</option>
+              <option value="phone">phone</option>
+              <option value="tablet">tablet</option>
+            </select>
+            <button class="btn btn-ghost btn-sm" type="submit">add my score</button>
+          </form>
+          <p class="leaderboard-status" data-leaderboard-status hidden></p>
+          <ol class="leaderboard" data-leaderboard aria-label="top scores">
+            <!-- Filled by game.js -->
+          </ol>
+        </section>
+
+        <div class="result-actions">
+          <button class="btn btn-primary" data-action="restart-eval">
+            run again
+          </button>
+          <button class="btn btn-ghost" data-action="back-to-title">
+            back
+          </button>
+        </div>
+      </section>
+
+    </main>
+
+    <input
+      class="soft-keyboard-input"
+      data-soft-keyboard-input
+      type="text"
+      inputmode="text"
+      autocomplete="off"
+      autocorrect="off"
+      autocapitalize="none"
+      spellcheck="false"
+      tabindex="-1"
+      aria-label="mobile keyboard input"
+    />
+
+    <aside class="dev-panel" data-dev-panel hidden aria-label="developer test harness">
+      <header class="dev-header">
+        <span class="section-eyebrow">test harness</span>
+        <button class="btn btn-ghost btn-sm" data-action="close-dev">close</button>
+      </header>
+
+      <fieldset class="dev-section">
+        <legend class="section-eyebrow">alphabet</legend>
+        <div class="dev-buttons" data-alphabet-buttons></div>
+      </fieldset>
+
+      <fieldset class="dev-section">
+        <legend class="section-eyebrow">history · 60s eval runs</legend>
+        <ol class="dev-history" data-history></ol>
+        <div class="dev-actions">
+          <button class="btn btn-ghost btn-sm" data-action="export-history">export JSON</button>
+          <button class="btn btn-ghost btn-sm" data-action="clear-history">clear</button>
+        </div>
+      </fieldset>
+
+      <fieldset class="dev-section">
+        <legend class="section-eyebrow">per-letter timing</legend>
+        <div class="dev-letter-stats" data-letter-stats>
+          <!-- Filled by game.js -->
+        </div>
+      </fieldset>
+
+      <fieldset class="dev-section">
+        <legend class="section-eyebrow">sampling sanity</legend>
+        <button class="btn btn-ghost btn-sm" data-action="sanity-iid">
+          run i.i.d. test (10k samples)
+        </button>
+        <pre class="dev-output" data-sanity-output></pre>
+      </fieldset>
+    </aside>
+
+    <div class="blur-overlay" data-blur-overlay hidden aria-hidden="true">
+      <span class="overlay-label">paused · click to resume</span>
+    </div>
+
+    <div class="leaderboard-popup" data-leaderboard-popup hidden role="dialog" aria-modal="true" aria-label="leaderboard">
+      <div class="leaderboard-popup-card" data-leaderboard-popup-card>
+        <header class="leaderboard-popup-header">
+          <h2 class="section-eyebrow">leaderboard</h2>
+          <button class="btn btn-ghost btn-sm" data-action="close-leaderboard-popup" type="button">close</button>
+        </header>
+        <ol class="leaderboard" data-leaderboard-popup-list aria-label="top scores">
+          <!-- Filled by game.js -->
+        </ol>
+      </div>
+    </div>
+
+  </div>
+
+  <script type="module" src="game.js?v=ttt45"></script>
+</body>
+</html>
